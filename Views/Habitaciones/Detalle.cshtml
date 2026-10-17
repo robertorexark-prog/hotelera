@@ -1,0 +1,38 @@
+@model HabitacionDestacadaViewModel
+@using System.Globalization
+@{
+    ViewData["Title"] = Model.NombreTipo;
+    var mx = CultureInfo.GetCultureInfo("es-MX");
+}
+
+<a class="small" asp-controller="Home" asp-action="Index" asp-fragment="tipos-habitacion">&larr; Volver a tipos de habitación</a>
+
+<div class="row g-4 mt-1">
+    <div class="col-lg-7">
+        <div class="hv-room-media hv-room-media-@(Model.IdTipoHab % 4) hv-room-media-lg">
+            @if (!string.IsNullOrEmpty(Model.UrlImagen))
+            {
+                <img src="@Model.UrlImagen" alt="Habitación @Model.NombreTipo" />
+            }
+            else
+            {
+                <svg viewBox="0 0 24 24" width="56" height="56" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18V7" /><path d="M21 18v-5a3 3 0 0 0-3-3h-7v5" /><path d="M3 15h18" /><circle cx="7" cy="11" r="2" /></svg>
+            }
+        </div>
+    </div>
+    <div class="col-lg-5">
+        <div class="hv-card h-100">
+            <p class="hv-eyebrow mb-1">Hospedaje</p>
+            <h1 class="h2 mb-2">@Model.NombreTipo</h1>
+            <p class="hv-muted">@Model.Descripcion</p>
+            <p class="mb-4">Capacidad: hasta @Model.CapacidadMaxima @(Model.CapacidadMaxima == 1 ? "huésped" : "huéspedes")</p>
+            <div class="d-flex align-items-end justify-content-between">
+                <div>
+                    <span class="hv-muted small d-block">Desde</span>
+                    <span class="hv-price">@Model.PrecioBase.ToString("C0", mx) <small>MXN / noche</small></span>
+                </div>
+                <a class="btn btn-primary" asp-controller="Home" asp-action="Reservas" asp-route-tipo="@Model.IdTipoHab">Reservar</a>
+            </div>
+        </div>
+    </div>
+</div>

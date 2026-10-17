@@ -83,8 +83,6 @@ C:\Users\luisp\Programacion_web\hotelera\obj\Debug\net10.0\compressed\j1r50vlvza
 C:\Users\luisp\Programacion_web\hotelera\obj\Debug\net10.0\compressed\yjwj0ftg0y-{0}-muycvpuwrr-muycvpuwrr.gz
 C:\Users\luisp\Programacion_web\hotelera\obj\Debug\net10.0\compressed\4rp6davk7n-{0}-87fc7y1x7t-87fc7y1x7t.gz
 C:\Users\luisp\Programacion_web\hotelera\obj\Debug\net10.0\compressed\hhwabk86ef-{0}-mlv21k5csn-mlv21k5csn.gz
-C:\Users\luisp\Programacion_web\hotelera\obj\Debug\net10.0\compressed\hn501pixxa-{0}-08ohr0ge00-08ohr0ge00.gz
-C:\Users\luisp\Programacion_web\hotelera\obj\Debug\net10.0\compressed\g0fdl0kpzg-{0}-08ohr0ge00-08ohr0ge00.gz
 C:\Users\luisp\Programacion_web\hotelera\obj\Debug\net10.0\staticwebassets.build.json
 C:\Users\luisp\Programacion_web\hotelera\obj\Debug\net10.0\staticwebassets.build.json.cache
 C:\Users\luisp\Programacion_web\hotelera\obj\Debug\net10.0\staticwebassets.development.json
@@ -95,3 +93,7 @@ C:\Users\luisp\Programacion_web\hotelera\obj\Debug\net10.0\refint\hotelera.dll
 C:\Users\luisp\Programacion_web\hotelera\obj\Debug\net10.0\hotelera.pdb
 C:\Users\luisp\Programacion_web\hotelera\obj\Debug\net10.0\hotelera.genruntimeconfig.cache
 C:\Users\luisp\Programacion_web\hotelera\obj\Debug\net10.0\ref\hotelera.dll
+C:\Users\luisp\Programacion_web\hotelera\obj\Debug\net10.0\hotelera.sourcelink.json
+C:\Users\luisp\Programacion_web\hotelera\obj\Debug\net10.0\compressed\n79bn608wn-{0}-jasnsvutlo-jasnsvutlo.gz
+C:\Users\luisp\Programacion_web\hotelera\obj\Debug\net10.0\compressed\hn501pixxa-{0}-o3pwioy53o-o3pwioy53o.gz
+C:\Users\luisp\Programacion_web\hotelera\obj\Debug\net10.0\compressed\g0fdl0kpzg-{0}-o3pwioy53o-o3pwioy53o.gz

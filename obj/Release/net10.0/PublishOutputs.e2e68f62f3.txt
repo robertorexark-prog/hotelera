@@ -1,0 +1,7 @@
+C:\Users\luisp\Programacion_web\hotelera\publish\hotelera.exe
+C:\Users\luisp\Programacion_web\hotelera\publish\appsettings.Development.json
+C:\Users\luisp\Programacion_web\hotelera\publish\appsettings.json
+C:\Users\luisp\Programacion_web\hotelera\publish\hotelera.dll
+C:\Users\luisp\Programacion_web\hotelera\publish\hotelera.deps.json
+C:\Users\luisp\Programacion_web\hotelera\publish\hotelera.runtimeconfig.json
+C:\Users\luisp\Programacion_web\hotelera\publish\hotelera.pdb

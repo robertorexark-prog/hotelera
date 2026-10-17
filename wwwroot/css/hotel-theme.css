@@ -1,0 +1,430 @@
+/* ==========================================================================
+   Hotelera · Tema oscuro (plataforma hermana de FlyVibe Mex)
+   Misma estructura limpia: cabecera con degradado oscuro, tarjetas
+   redondeadas y un solo color de acento (esmeralda en lugar de magenta).
+   ========================================================================== */
+
+:root,
+[data-bs-theme="dark"] {
+    /* Paleta */
+    --hv-bg: #0a0f0d;
+    --hv-surface: #111916;
+    --hv-surface-2: #17211d;
+    --hv-border: rgba(255, 255, 255, .08);
+    --hv-text: #e6ece9;
+    --hv-muted: #93a39c;
+    --hv-accent: #10b981;
+    --hv-accent-hover: #34d399;
+    --hv-accent-ink: #04140d;
+    --hv-accent-soft: rgba(16, 185, 129, .14);
+    --hv-gold: #d6b25e;
+    --hv-header-gradient: linear-gradient(120deg, #06110d 0%, #0b2a20 55%, #0f3f2f 100%);
+    --hv-radius: 1rem;
+    --hv-radius-sm: .65rem;
+    --hv-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+    --hv-font: "Plus Jakarta Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+
+    /* Bootstrap 5.3 en modo oscuro, ajustado a la paleta */
+    --bs-body-bg: var(--hv-bg);
+    --bs-body-color: var(--hv-text);
+    --bs-body-font-family: var(--hv-font);
+    --bs-emphasis-color: #ffffff;
+    --bs-secondary-color: var(--hv-muted);
+    --bs-secondary-bg: var(--hv-surface-2);
+    --bs-tertiary-bg: var(--hv-surface);
+    --bs-border-color: var(--hv-border);
+    --bs-border-radius: var(--hv-radius-sm);
+    --bs-border-radius-lg: var(--hv-radius);
+    --bs-primary: var(--hv-accent);
+    --bs-primary-rgb: 16, 185, 129;
+    --bs-link-color: var(--hv-accent-hover);
+    --bs-link-color-rgb: 52, 211, 153;
+    --bs-link-hover-color: #6ee7b7;
+    --bs-link-hover-color-rgb: 110, 231, 183;
+    --bs-focus-ring-color: rgba(16, 185, 129, .35);
+}
+
+/* ---------- Estructura base: el pie de página siempre abajo ---------- */
+html {
+    min-height: 100%;
+}
+
+body.hv-body {
+    margin-bottom: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--hv-bg);
+    color: var(--hv-text);
+    font-family: var(--hv-font);
+    -webkit-font-smoothing: antialiased;
+}
+
+.hv-main {
+    flex: 1 0 auto;
+    padding: 2rem 0 3rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: -.01em;
+}
+
+/* ---------- Cabecera ---------- */
+.hv-header {
+    background: var(--hv-header-gradient);
+    border-bottom: 1px solid var(--hv-border);
+    position: relative;
+}
+
+.hv-navbar {
+    padding: .9rem 0;
+}
+
+.hv-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+    .hv-brand:hover {
+        color: #fff;
+    }
+
+.hv-brand-badge {
+    display: inline-grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: .55rem;
+    background: var(--hv-accent);
+    color: var(--hv-accent-ink);
+    font-weight: 800;
+    font-size: .95rem;
+}
+
+.hv-nav {
+    gap: .25rem;
+}
+
+    .hv-nav .nav-link {
+        color: rgba(230, 236, 233, .78);
+        font-size: .92rem;
+        font-weight: 500;
+        padding: .45rem .85rem;
+        border-radius: 999px;
+        transition: color .15s ease, background-color .15s ease;
+    }
+
+        .hv-nav .nav-link:hover,
+        .hv-nav .nav-link:focus-visible {
+            color: #fff;
+            background-color: rgba(255, 255, 255, .06);
+        }
+
+        .hv-nav .nav-link.active {
+            color: var(--hv-accent-hover);
+            background-color: var(--hv-accent-soft);
+        }
+
+.hv-nav-profile {
+    display: inline-flex;
+    align-items: center;
+    gap: .45rem;
+}
+
+.hv-avatar {
+    display: inline-grid;
+    place-items: center;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, .18);
+}
+
+.hv-toggler {
+    border-color: rgba(255, 255, 255, .2);
+}
+
+    .hv-toggler:focus {
+        box-shadow: 0 0 0 .2rem var(--bs-focus-ring-color);
+    }
+
+@media (max-width: 991.98px) {
+    .hv-nav {
+        padding: .75rem 0 .25rem;
+    }
+}
+
+/* Héroe opcional dentro de la cabecera (@section Hero) */
+.hv-hero {
+    padding: 2.5rem 0 3.5rem;
+}
+
+    .hv-hero h1 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 800;
+    }
+
+    .hv-hero p {
+        color: rgba(230, 236, 233, .78);
+        max-width: 38rem;
+    }
+
+    .hv-hero .hv-eyebrow {
+        color: var(--hv-accent-hover);
+    }
+
+/* ---------- Tarjetas redondeadas ---------- */
+.card,
+.hv-card {
+    background-color: var(--hv-surface);
+    border: 1px solid var(--hv-border);
+    border-radius: var(--hv-radius);
+    box-shadow: var(--hv-shadow);
+    color: var(--hv-text);
+}
+
+.hv-card {
+    padding: 1.5rem;
+    transition: transform .15s ease, border-color .15s ease;
+}
+
+    .hv-card:hover {
+        transform: translateY(-2px);
+        border-color: rgba(16, 185, 129, .35);
+    }
+
+.hv-icon {
+    display: inline-grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: .75rem;
+    background: var(--hv-accent-soft);
+    color: var(--hv-accent-hover);
+    margin-bottom: 1rem;
+}
+
+.hv-eyebrow {
+    color: var(--hv-accent-hover);
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.text-muted,
+.hv-muted {
+    color: var(--hv-muted) !important;
+}
+
+/* ---------- Botones y formularios ---------- */
+.btn {
+    border-radius: .7rem;
+    font-weight: 600;
+}
+
+.btn-primary {
+    --bs-btn-color: var(--hv-accent-ink);
+    --bs-btn-bg: var(--hv-accent);
+    --bs-btn-border-color: var(--hv-accent);
+    --bs-btn-hover-color: var(--hv-accent-ink);
+    --bs-btn-hover-bg: var(--hv-accent-hover);
+    --bs-btn-hover-border-color: var(--hv-accent-hover);
+    --bs-btn-active-color: var(--hv-accent-ink);
+    --bs-btn-active-bg: #059669;
+    --bs-btn-active-border-color: #059669;
+    --bs-btn-disabled-bg: var(--hv-accent);
+    --bs-btn-disabled-border-color: var(--hv-accent);
+}
+
+.btn-outline-light {
+    --bs-btn-border-color: rgba(255, 255, 255, .3);
+}
+
+.form-control,
+.form-select {
+    background-color: var(--hv-surface-2);
+    border-color: var(--hv-border);
+    color: var(--hv-text);
+}
+
+    .form-control::placeholder {
+        color: var(--hv-muted);
+    }
+
+/* Sustituye el anillo de foco azul de site.css por uno esmeralda */
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-select:focus, .form-check-input:focus {
+    border-color: var(--hv-accent);
+    box-shadow: 0 0 0 .25rem var(--bs-focus-ring-color);
+}
+
+.form-check-input:checked {
+    background-color: var(--hv-accent);
+    border-color: var(--hv-accent);
+}
+
+/* ---------- Pie de página ---------- */
+.hv-footer {
+    flex-shrink: 0;
+    background-color: #060a09;
+    border-top: 1px solid var(--hv-border);
+    color: var(--hv-muted);
+    font-size: .85rem;
+    padding: 1.1rem 0;
+}
+
+    .hv-footer a {
+        color: var(--hv-muted);
+        text-decoration: none;
+    }
+
+        .hv-footer a:hover {
+            color: var(--hv-accent-hover);
+        }
+
+.hv-pill {
+    display: inline-block;
+    padding: .2rem .65rem;
+    border-radius: 999px;
+    background: var(--hv-accent-soft);
+    color: var(--hv-accent-hover);
+    font-size: .72rem;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   Inicio: buscador del banner y tarjetas de tipos de habitación
+   ========================================================================== */
+html {
+    scroll-behavior: smooth;
+}
+
+.hv-search {
+    background: rgba(10, 20, 16, .55);
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: var(--hv-radius);
+    padding: 1.5rem;
+    box-shadow: var(--hv-shadow);
+    backdrop-filter: blur(8px);
+}
+
+.hv-search-title {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.hv-search .form-label {
+    color: rgba(230, 236, 233, .8);
+    font-size: .82rem;
+    font-weight: 500;
+    margin-bottom: .35rem;
+}
+
+.hv-search .form-control,
+.hv-search .form-select {
+    background-color: rgba(255, 255, 255, .06);
+    border-color: rgba(255, 255, 255, .14);
+    color-scheme: dark;
+}
+
+.hv-field-error {
+    display: block;
+    color: #fca5a5;
+    font-size: .78rem;
+    margin-top: .25rem;
+}
+
+.hv-section {
+    scroll-margin-top: 1.5rem;
+}
+
+.hv-room-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--hv-surface);
+    border: 1px solid var(--hv-border);
+    border-radius: var(--hv-radius);
+    box-shadow: var(--hv-shadow);
+    overflow: hidden;
+    transition: transform .15s ease, border-color .15s ease;
+}
+
+    .hv-room-card:hover {
+        transform: translateY(-3px);
+        border-color: rgba(16, 185, 129, .35);
+    }
+
+/* Imagen superior; sin foto se muestra un degradado con icono */
+.hv-room-media {
+    aspect-ratio: 16 / 10;
+    display: grid;
+    place-items: center;
+    color: rgba(255, 255, 255, .75);
+    background: linear-gradient(135deg, #0f3d2f, #1f6b52);
+    overflow: hidden;
+}
+
+    .hv-room-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+.hv-room-media-1 { background: linear-gradient(135deg, #0c2a20, #12644a); }
+.hv-room-media-2 { background: linear-gradient(135deg, #10252b, #1d5b63); }
+.hv-room-media-3 { background: linear-gradient(135deg, #1e1a10, #6b5521); }
+.hv-room-media-0 { background: linear-gradient(135deg, #17142a, #3c2f6b); }
+
+.hv-room-media-lg {
+    border-radius: var(--hv-radius);
+    border: 1px solid var(--hv-border);
+    aspect-ratio: 16 / 9;
+}
+
+.hv-room-body {
+    padding: 1.25rem 1.25rem .5rem;
+    flex: 1 1 auto;
+}
+
+.hv-room-title {
+    font-size: 1.15rem;
+    margin-bottom: .4rem;
+}
+
+.hv-tag {
+    display: inline-block;
+    padding: .15rem .55rem;
+    border-radius: 999px;
+    background: var(--hv-accent-soft);
+    color: var(--hv-accent-hover);
+    font-size: .7rem;
+    font-weight: 600;
+}
+
+/* Precio a la izquierda, botón "Ver detalle" alineado a la derecha */
+.hv-room-footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.25rem 1.25rem;
+}
+
+.hv-price {
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+    .hv-price small {
+        color: var(--hv-muted);
+        font-size: .72rem;
+        font-weight: 500;
+    }

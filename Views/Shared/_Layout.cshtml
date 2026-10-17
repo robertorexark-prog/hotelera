@@ -1,47 +1,89 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+@{
+    // Controlador actual, para marcar el enlace activo de la barra de navegación
+    var controladorActual = ViewContext.RouteData.Values["controller"]?.ToString() ?? "";
+    string Activo(string controlador) =>
+        string.Equals(controladorActual, controlador, StringComparison.OrdinalIgnoreCase) ? "active" : "";
+}
+<html lang="es" data-bs-theme="dark">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - hotelera</title>
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#07130f" />
+    <title>@ViewData["Title"] - Hotelera</title>
     <script type="importmap"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/hotel-theme.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/hotelera.styles.css" asp-append-version="true" />
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">hotelera</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+<body class="hv-body">
+    <header class="hv-header">
+        <nav class="navbar navbar-expand-lg hv-navbar" aria-label="Navegación principal">
+            <div class="container">
+                <a class="navbar-brand hv-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <span class="hv-brand-badge" aria-hidden="true">H</span>
+                    <span class="hv-brand-text">Hotelera</span>
+                </a>
+                <button class="navbar-toggler hv-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#hvNav"
+                        aria-controls="hvNav" aria-expanded="false" aria-label="Mostrar menú">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="collapse navbar-collapse" id="hvNav">
+                    <ul class="navbar-nav ms-auto hv-nav">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link @Activo("Habitaciones")" asp-area="" asp-controller="Habitaciones" asp-action="Index">Catálogo de Habitaciones</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link @Activo("Reservas")" asp-area="" asp-controller="Reservas" asp-action="Index">Mis Reservas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @Activo("Servicios")" asp-area="" asp-controller="Servicios" asp-action="Index">Servicios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link hv-nav-profile @Activo("Perfil")" asp-area="" asp-controller="Perfil" asp-action="Index">
+                                <span class="hv-avatar" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4" /><path d="M4 21a8 8 0 0 1 16 0" /></svg>
+                                </span>
+                                Mi Perfil
+                            </a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
+        @* Las vistas pueden extender la cabecera con un héroe propio: @section Hero { ... } *@
+        @if (IsSectionDefined("Hero"))
+        {
+            <div class="container">
+                <div class="hv-hero">
+                    @await RenderSectionAsync("Hero", required: false)
+                </div>
+            </div>
+        }
+    </header>
+
+    <main role="main" class="hv-main">
         <div class="container">
-            &copy; 2026 - hotelera - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            @RenderBody()
+        </div>
+    </main>
+
+    <footer class="hv-footer">
+        <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-2">
+            <span>&copy; @DateTime.Now.Year Hotelera. Renta de habitaciones.</span>
+            <span class="d-flex align-items-center gap-2">
+                <span class="hv-pill">Plataforma hermana de FlyVibe Mex</span>
+                <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacidad</a>
+            </span>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
